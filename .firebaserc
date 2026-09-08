@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "sonoria-official"
+    "default": "flutter-application-1-42d8a"
+  },
+  "targets": {
+    "flutter-application-1-42d8a": {
+      "hosting": {
+        "main_site": [
+          "sonoria-official"
+        ]
+      }
+    }
   }
 }
