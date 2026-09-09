@@ -22,7 +22,7 @@ body {
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 3000; /* サイドメニュー(2000)より大きく設定 */
 }
 
 .logo {
@@ -62,7 +62,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 3000;
+    z-index: 3001; /* アイコンを最前面に */
 }
 
 .menu-icon span {
@@ -87,7 +87,7 @@ body {
     height: 100vh;
     background-color: #16161a;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.7);
-    padding-top: 100px;
+    padding-top: 100px; /* アイコンやヘッダーとかぶらないよう上部に余白を確保 */
     transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 2000;
 }
