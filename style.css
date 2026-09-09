@@ -22,7 +22,7 @@ body {
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
-    z-index: 3000; /* サイドメニュー(2000)より大きく設定 */
+    z-index: 3000; /* サイドメニューより上に配置 */
 }
 
 .logo {
@@ -81,15 +81,16 @@ body {
 /* サイドメニュー（z-index: 2000） */
 .side-menu {
     position: fixed;
-    top: 0;
+    top: 0; /* 画面最上部から */
     right: -280px;
     width: 280px;
-    height: 100vh;
+    height: 100vh; /* 画面全体の高さ */
     background-color: #16161a;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.7);
-    padding-top: 100px; /* アイコンやヘッダーとかぶらないよう上部に余白を確保 */
+    padding-top: 140px; /* ヘッダー項目の裏に文字が隠れないよう上余白を設ける */
     transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 2000;
+    z-index: 2000; /* ヘッダー(3000)より背面に配置 */
+    box-sizing: border-box;
 }
 
 .side-menu.active {
