@@ -42,8 +42,6 @@
       });
  
       // 🌟 ボタンを押したときの挙動
-      //    ログイン済み → そのままinPageへ(=アプリが開く)
-      //    未ログイン   → Googleログイン → 成功したらそのままinPageへ
       window.handleLoginClick = async () => {
         if (auth.currentUser) {
           window.location.href = "inpage.html";
@@ -61,17 +59,17 @@
 <body>
  
     <header class="navbar">
-    <div class="logo">SoNoRIA Stream</div>
-    <div class="menu-right">
-        <button id="loginBtn" class="login-btn-new" onclick="handleLoginClick()">
-            inPageログイン
-        </button>
-        <div class="menu-icon" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div> 
-    </div>
+        <div class="logo">SoNoRIA Stream</div>
+        <div class="menu-right">
+            <button id="loginBtn" class="login-btn-new" onclick="handleLoginClick()">
+                inPageログイン
+            </button>
+            <div class="menu-icon" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div> 
+        </div>
     </header>
  
     <nav class="side-menu" id="sideMenu">
@@ -105,6 +103,7 @@
                 <li>2位 SNSバズり中の曲</li>
                 <li>3位 話題のインディーズ</li>
             </ol>
+            <a href="#" class="card-link">ランキング一覧を見る →</a>
         </div>
  
         <div class="card">
@@ -112,6 +111,7 @@
             <h3>次の出演アーティスト情報</h3>
             <p class="artist-name">【 ゲスト:○○○○ 】</p>
             <p class="show-date">次回配信:7月1日(水) 20:00〜</p>
+            <a href="#" class="card-link">タイムテーブルを見る →</a>
         </div>
  
         <div class="card">
@@ -121,8 +121,116 @@
             <button class="ticket-btn">チケット購入・詳細</button>
         </div>
     </main>
- 
+
+    <!-- 👇 ここから追加：最新ニュース＆SNSタイムライン -->
+    <section class="news-section">
+        <h2 class="section-title"><span class="hashtag">#</span> LATEST & TRENDS</h2>
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-meta">
+                    <span class="news-tag">X / Twitter</span>
+                    <time>2026.09.08</time>
+                </div>
+                <h4>【ハッシュタグ企画】#SONORIAおすすめ楽曲 で投稿された注目のインディーズ曲10選を公開！</h4>
+                <p>SNSで爆発的な再生数を記録している新進気鋭のアーティストをピックアップ解説。</p>
+                <a href="#" class="read-more">記事を読む →</a>
+            </article>
+            
+            <article class="news-card">
+                <div class="news-meta">
+                    <span class="news-tag tag-tiktok">TikTok</span>
+                    <time>2026.09.05</time>
+                </div>
+                <h4>公式TikTokアカウント開設！次回LIVE出演者の限定メイキング映像を公開中</h4>
+                <p>舞台裏のリアルな熱気やショートパフォーマンスをお届けします。</p>
+                <a href="#" class="read-more">TikTokで見る →</a>
+            </article>
+
+            <article class="news-card">
+                <div class="news-meta">
+                    <span class="news-tag tag-youtube">YouTube</span>
+                    <time>2026.09.01</time>
+                </div>
+                <h4>前回の「SONORIA LIVE Vol.4」アーカイブ配信が100万回再生を突破しました！</h4>
+                <p>ご視聴ありがとうございました。ハイライト動画を公開中。</p>
+                <a href="#" class="read-more">アーカイブ視聴 →</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- 👇 ここから追加：出演アーティスト募集 -->
+    <section class="artist-entry-section">
+        <div class="entry-inner">
+            <span class="sub-label">CREATE THE NEXT WAVE</span>
+            <h2>SONORIAで、あなたの音楽を世界へ。</h2>
+            <p>SNSで話題の楽曲をお持ちの次世代アーティスト・クリエイターを随時募集しています。</p>
+            <div class="entry-buttons">
+                <a href="#" class="btn-entry">エントリーフォームへ</a>
+                <a href="#" class="btn-outline">出演ガイドライン</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👇 ここから追加：SNSプラットフォーム連携 -->
+    <section class="sns-community-section">
+        <h2 class="section-title">JOIN OUR COMMUNITY</h2>
+        <p class="section-lead">リアルタイムな配信情報や限定アナウンスは各SNSで発信中</p>
+        <div class="sns-grid">
+            <a href="#" class="sns-box twitter">
+                <span class="sns-icon">𝕏</span>
+                <span class="sns-name">X (Twitter)</span>
+                <span class="sns-id">@SONORIA_official</span>
+            </a>
+            <a href="#" class="sns-box tiktok">
+                <span class="sns-icon">🎵</span>
+                <span class="sns-name">TikTok</span>
+                <span class="sns-id">@sonoria_live</span>
+            </a>
+            <a href="#" class="sns-box youtube">
+                <span class="sns-icon">▶</span>
+                <span class="sns-name">YouTube</span>
+                <span class="sns-id">SONORIA Channel</span>
+            </a>
+            <a href="#" class="sns-box instagram">
+                <span class="sns-icon">📷</span>
+                <span class="sns-name">Instagram</span>
+                <span class="sns-id">@sonoria_music</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 👇 ここから追加：企業情報 -->
+    <section class="company-section">
+        <div class="company-container">
+            <div class="company-info">
+                <h2 class="company-logo">SoNoRIA Stream</h2>
+                <p class="company-mission">SNS発の音楽ムーブメントを、リアルステージの感動へつなぐ次世代ミュージックエンターテインメントプラットフォーム。</p>
+            </div>
+            <div class="company-details">
+                <h3>ABOUT US / 運営会社情報</h3>
+                <dl class="info-list">
+                    <dt>サービス名</dt>
+                    <dd>SoNoRIA Stream（ソノリア ストリーム）</dd>
+                    <dt>運営会社</dt>
+                    <dd>株式会社SONORIA Entertainment</dd>
+                    <dt>設立</dt>
+                    <dd>2025年4月1日</dd>
+                    <dt>事業内容</dt>
+                    <dd>音楽ライブ配信事業、イベント企画運営、アーティストIPプロデュース、SNSマーケティング事業</dd>
+                    <dt>所在地</dt>
+                    <dd>東京都渋谷区〇〇 1-2-3 SONORIAビル</dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+
     <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#">プライバシーポリシー</a>
+            <a href="#">利用規約</a>
+            <a href="#">特定商取引法に基づく表記</a>
+            <a href="#">お問い合わせ・取材依頼</a>
+        </div>
         <p>© 2026 SoNoRIA Stream. All Rights Reserved.</p>
     </footer>
  

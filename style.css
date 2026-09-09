@@ -1,50 +1,46 @@
 /* ==========================================
-   1. 全体・ベースの設定
+   1. 全体・ベースの設定（クールなダークモード）
    ========================================== */
 body {
     margin: 0;
     padding: 0;
-    background-color: #4a3525; /* 落ち着いた茶色 */
-    font-family: sans-serif;
-    overflow-x: hidden;        /* 横揺れ防止 */
+    background-color: #0f0f12; /* 深みのあるモダンダーク */
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
 }
 
 /* ==========================================
-   2. ヘッダー（一番上のバー）
+   2. ヘッダー
    ========================================== */
-/* 一番上のバー（ヘッダー）の横並び設定 */
 .navbar {
     display: flex;
-    justify-content: space-between; /* 左端と右端に分ける */
-    align-items: center;            /* 上下の真ん中に揃える */
-    padding: 20px 30px;             /* 内側の隙間 */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
     position: relative;
+    background: rgba(15, 15, 18, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* 左上のロゴ（太文字・白） */
 .logo {
     color: #ffffff;
     font-size: 24px;
-    font-weight: bold; /* 太文字 */
+    font-weight: bold;
     letter-spacing: 1px;
 }
 
-/* 右上のメニュー全体の並び */
 .menu-right {
     display: flex;
     align-items: center;
-    gap: 20px; /* ログインと三本線の間の隙間 */
-}
-
-/* ログインボタン（白文字） */
-.login-btn {
-    color: #ffffff;
-    font-size: 16px;
-    cursor: pointer;
+    gap: 20px;
 }
 
 .login-btn-new {
-    background-color: #ff4500;
+    background-color: #ff5500;
     color: white;
     border: none;
     padding: 8px 18px;
@@ -55,10 +51,9 @@ body {
     transition: background-color 0.3s;
 }
 .login-btn-new:hover {
-    background-color: #e03e00;
+    background-color: #e04400;
 }
 
-/* ★アニメーションする横三本線マークの土台 */
 .menu-icon {
     width: 30px;
     height: 20px;
@@ -67,52 +62,40 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 100; /* メニューより上に表示 */
+    z-index: 101;
 }
 
-/* 三本線の「線」そのもののデザイン */
 .menu-icon span {
     display: block;
     width: 100%;
     height: 3px;
     background-color: #ffffff;
     border-radius: 2px;
-    transition: all 0.3s ease; /* 滑らかに変形させる */
+    transition: all 0.3s ease;
 }
 
-/* ボタンが押されて「active」クラスがついた時、三本線を「✕」にする */
-.menu-icon.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.menu-icon.active span:nth-child(2) {
-    opacity: 0; /* 真ん中の線は消す */
-}
-.menu-icon.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
+.menu-icon.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-icon.active span:nth-child(2) { opacity: 0; }
+.menu-icon.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /* ==========================================
-   2.5. 右側に隠れているメニュー画面
+   2.5. サイドメニュー
    ========================================== */
 .side-menu {
     position: fixed;
     top: 0;
-    right: -250px; /* 横幅分（250px）だけ右側の画面外に隠しておく */
+    right: -250px;
     width: 250px;
     height: 100vh;
-    background-color: #2c1e14; /* 高級感のある濃い茶色 */
+    background-color: #18181c;
     box-shadow: -5px 0 15px rgba(0,0,0,0.5);
     padding-top: 80px;
-    transition: right 0.3s ease; /* 滑らかにスライドさせる */
+    transition: right 0.3s ease;
     z-index: 90;
 }
 
-/* 「active」クラスがついたら、画面内に引っ張り出す */
-.side-menu.active {
-    right: 0;
-}
+.side-menu.active { right: 0; }
 
-/* メニューの中のリンク文字 */
 .side-menu ul {
     list-style: none;
     padding: 0;
@@ -132,14 +115,14 @@ body {
 }
 
 /* ==========================================
-   3. ヒーローエリア（メインビジュアル）
+   3. ヒーローエリア
    ========================================== */
 .hero-section {
-    background: linear-gradient(135deg, #5c4331, #2c1e14); /* 高級感のある茶色のグラデーション */
+    background: radial-gradient(circle at center, #2a1510 0%, #0f0f12 70%);
     color: #ffffff;
-    padding: 80px 20px;
+    padding: 100px 20px 80px;
     text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     animation: fadeInUp 1.2s ease-out;
 }
 
@@ -148,54 +131,46 @@ body {
     margin: 0 auto;
 }
 
-/* 小さな英語のタグ */
 .hero-tag {
     font-size: 14px;
-    color: #ff4500; /* アクセントのオレンジ */
+    color: #ff5500;
     font-weight: bold;
     letter-spacing: 2px;
-    text-transform: uppercase;
 }
 
-/* 一番大きなキャッチコピー */
 .hero-title {
-    font-size: 38px;
+    font-size: 42px;
     margin: 20px 0;
     font-weight: bold;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* 説明文 */
 .hero-text {
     font-size: 16px;
-    color: #dfdfdf;
+    color: #aaa;
     line-height: 1.8;
     margin-bottom: 40px;
 }
 
-/* ボタンの並び */
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
 
-/* メインのオレンジボタン */
 .btn-primary {
-    background-color: #ff4500;
+    background-color: #ff5500;
     color: white;
     border: none;
     padding: 12px 30px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 25px; /* 丸みのあるボタン */
+    border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 85, 0, 0.4);
     transition: background-color 0.3s;
 }
-.btn-primary:hover { background-color: #e03e00; }
+.btn-primary:hover { background-color: #e04400; }
 
-/* サブの透明ボタン */
 .btn-secondary {
     background-color: transparent;
     color: white;
@@ -214,32 +189,33 @@ body {
    ========================================== */
 .card-container {
     display: flex;
-    justify-content: center; /* 真ん中に寄せる */
-    gap: 20px;               /* カードとカードの間の隙間 */
-    padding: 40px 20px;
-    flex-wrap: wrap;         /* 画面が狭くなったら自動で折り返す */
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.05); /* ほんのり半透明の背景 */
-    color: #ffffff;           /* 文字をすべて白にする */
-    width: 280px;             /* カードの横幅 */
-    padding: 20px;            /* 内側のスキマ */
-    border-radius: 12px;      /* 角を丸くする */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* 白くて細い枠線 */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-    transition: transform 0.3s; /* 動くときのスムーズさ */
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    width: 280px;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s, background-color 0.3s;
 }
 
-/* マウスを乗せると、カードがふわっと浮き上がる仕掛け */
 .card:hover {
     transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.06);
 }
 
 .card-list {
     padding-left: 20px;
     line-height: 1.8;
-    color: #ffffff; /* リストの文字も白に */
+    color: #ffffff;
 }
 
 .artist-name {
@@ -256,12 +232,11 @@ body {
     text-align: center;
 }
 
-/* チケットボタンのデザイン */
 .ticket-btn {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #ff4500; /* 燃えるオレンジ */
+    background-color: #ff5500;
     color: white;
     border: none;
     border-radius: 6px;
@@ -270,11 +245,8 @@ body {
     margin-top: 20px;
     transition: background-color 0.3s;
 }
-.ticket-btn:hover {
-    background-color: #e03e00;
-}
+.ticket-btn:hover { background-color: #e04400; }
 
-/* タグ（バッジ）のデザイン */
 .badge, .badge-next, .badge-ticket {
     font-size: 11px;
     font-weight: bold;
@@ -289,33 +261,228 @@ body {
 .badge-ticket { background-color: #ff1493; }
 
 /* ==========================================
-   5. フッター（一番下のお知らせ・著作権）
+   5. 新規追加セクション
    ========================================== */
+.section-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 60px 0 20px;
+    letter-spacing: 2px;
+}
+.hashtag { color: #ff5500; }
+.section-lead {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #ff5500;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* ニュース */
+.news-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+.news-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+}
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+}
+.news-tag {
+    background: #1da1f2;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.tag-tiktok { background: #ff0050; }
+.tag-youtube { background: #ff0000; }
+.news-card time { color: #888; }
+.news-card h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+.news-card p {
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+.read-more {
+    color: #ff5500;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* アーティストエントリー */
+.artist-entry-section {
+    background: linear-gradient(135deg, rgba(255,85,0,0.15) 0%, rgba(0,0,0,0.8) 100%);
+    border-top: 1px solid rgba(255,85,0,0.3);
+    border-bottom: 1px solid rgba(255,85,0,0.3);
+    padding: 80px 20px;
+    text-align: center;
+    margin: 80px 0;
+}
+.sub-label {
+    color: #ff5500;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+.artist-entry-section h2 {
+    font-size: 2rem;
+    margin: 15px 0;
+}
+.artist-entry-section p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+.entry-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.btn-entry {
+    background: #ff5500;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-outline {
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SNSコミュニティ */
+.sns-community-section {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+.sns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.sns-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.3s, transform 0.2s;
+}
+.sns-box:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+}
+.sns-icon { font-size: 1.8rem; margin-bottom: 8px; }
+.sns-name { font-weight: bold; font-size: 0.95rem; }
+.sns-id { font-size: 0.75rem; color: #777; margin-top: 4px; }
+
+/* 企業情報 */
+.company-section {
+    background: #050507;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.company-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+.company-logo { font-size: 1.6rem; margin-bottom: 15px; }
+.company-mission { color: #aaa; font-size: 0.9rem; line-height: 1.6; }
+.company-details h3 { font-size: 1.1rem; margin-bottom: 20px; border-bottom: 2px solid #ff5500; display: inline-block; padding-bottom: 5px; }
+.info-list { display: grid; grid-template-columns: 100px 1fr; gap: 12px 10px; font-size: 0.85rem; }
+.info-list dt { color: #888; font-weight: bold; }
+.info-list dd { color: #ccc; margin: 0; }
+
+/* フッター */
 .site-footer {
     text-align: center;
     padding: 30px 20px;
-    margin-top: 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(0, 0, 0, 0.2); /* ほんのり黒を混ぜて引き締める */
+    background-color: #050507;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
 .site-footer p {
     font-size: 12px;
-    color: #888888; /* 控えめなグレーの文字 */
+    color: #666;
     margin: 0;
-    letter-spacing: 1px;
 }
 
-/* ==========================================
-   6. アニメーション設定
-   ========================================== */
+/* 初期状態：下にズレて透明 */
+.card, .news-card, .sns-box {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.3s;
+}
+
+/* 画面内に入った状態：浮き上がって表示 */
+.card.scroll-in, .news-card.scroll-in, .sns-box.scroll-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* アニメーション */
 @keyframes fadeInUp {
     0% {
-        opacity: 0;                /* 最初は透明 */
-        transform: translateY(30px); /* 最初は30ピクセル下にずらしておく */
+        opacity: 0;
+        transform: translateY(30px);
     }
     100% {
-        opacity: 1;                /* 最終的にくっきり表示 */
-        transform: translateY(0);    /* 元の位置に戻る */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
